@@ -2,36 +2,74 @@
 
 <PageTitle>Home</PageTitle>
 
-<div id="home" class="row align-items-center justify-content-center page">
+<div id="home" class="row align-items-center justify-content-center page p-2">
     <div class="col-sm-12 col-md-8 col-lg-5">
         <p class="fs-4 text-lg-start text-info">Hi, my name is</p>
         <p class="fw-bold text-lg-start text-lg">Cody Chaplin</p>
         <p class="fs-3 text-lg-start">I'm a .NET Developer</p>
     </div>
-    <div class="col-sm-12 col-md-8 col-lg-5">
-        <img class="mt-5" src="headshot.jpeg" alt="headshot" />
+    <div class="col-sm-12 col-md-8 col-lg-5 my-5">
+        <img src="headshot.jpeg" alt="headshot" />
     </div>
 </div>
 
-<div id="about" class="row page">
+<hr class="bg-info" />
+
+<div id="about" class="row p-2 page">
     <div class="col">
-        <p class="fs-1">About</p>
+        <p class="fs-1 fw-bold mb-5 title">About Me</p>
+        <div class="row">
+            <div class="col-lg-6">
+                <p class="fs-2 fw-bold">Bio</p>
+                <p class="fs-5 text-start text-p">
+                    Hi, I'm Cody Chaplin, a <strong>.NET developer</strong> from Ontario, Canada.
+                    I have two diplomas from Durham College in Computer Systems/Networking
+                    and Computer Programming, respectively.
+                    <br><br>
+                    I love working with <strong>C#</strong> and making <strong>Mobile</strong>,
+                    <strong>Desktop</strong>, and <strong>Web</strong> applications.
+                    I am most comfortable using <strong>Winforms</strong>, <strong>WPF</strong>,
+                    <strong>MAUI</strong>, and <strong>ASP/Blazor</strong>, and have also experimented
+                    with <strong>Unity</strong> for game development. Using these technologies has 
+                    given me a well-rounded understanding of the .NET framework.
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <p class="fs-2 fw-bold">Skills</p>
+                <div class="d-inline-flex flex-wrap align-items-center">
+                    <div class="skill">C#</div>
+                    <div class="skill">Python</div>
+                    <div class="skill">SQL</div>
+                    <div class="skill">NoSQL</div>
+                    <div class="skill">XAML</div>
+                    <div class="skill">HTML5</div>
+                    <div class="skill">CSS3</div>
+                    <!-- I strongly dislike JS -->
+                    <div class="skill">JavaScript</div>
+                    <div class="skill">JSON</div>
+                    <div class="skill">GitHub</div>
+                    <div class="skill">PowerShell</div>
+                    <div class="skill">Windows</div>
+                    <div class="skill">Linux</div>
+                    <div class="skill">Android</div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-<div id="projects" class="row page">
+<hr class="bg-info" />
+
+<div id="projects" class="row p-2 page">
     <div class="col">
-        <p class="fs-1">Projects</p>
+        <p class="fs-1 fw-bold title">Projects</p>
     </div>
 </div>
 
-<div id="resume" class="row page">
+<hr class="bg-info" />
+
+<div id="resume" class="row p-2 page">
     <div class="col">
-        <p class="fs-1">Resume</p>
+        <p class="fs-1 fw-bold title">Resume</p>
     </div>
 </div>
-
-@code
-{
-    ElementReference projects;
-}
