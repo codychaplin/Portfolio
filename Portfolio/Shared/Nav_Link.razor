@@ -1,0 +1,9 @@
+﻿@inject IJSRuntime JSRuntime
+
+<a class="nav-link" onclick="document.getElementById('@ElementId.ToLower()').scrollIntoView({behavior:'smooth'})">@ElementId</a>
+
+@code
+{
+    [Parameter]
+    public string ElementId { get; set; } = "";
+}

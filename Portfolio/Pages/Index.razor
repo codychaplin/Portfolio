@@ -2,4 +2,36 @@
 
 <PageTitle>Home</PageTitle>
 
-<h1>Cody Chaplin</h1>
+<div id="home" class="row align-items-center justify-content-center page">
+    <div class="col-sm-12 col-md-8 col-lg-5">
+        <p class="fs-4 text-lg-start text-info">Hi, my name is</p>
+        <p class="fw-bold text-lg-start text-lg">Cody Chaplin</p>
+        <p class="fs-3 text-lg-start">I'm a .NET Developer</p>
+    </div>
+    <div class="col-sm-12 col-md-8 col-lg-5">
+        <img class="mt-5" src="headshot.jpeg" alt="headshot" />
+    </div>
+</div>
+
+<div id="about" class="row page">
+    <div class="col">
+        <p class="fs-1">About</p>
+    </div>
+</div>
+
+<div id="projects" class="row page">
+    <div class="col">
+        <p class="fs-1">Projects</p>
+    </div>
+</div>
+
+<div id="resume" class="row page">
+    <div class="col">
+        <p class="fs-1">Resume</p>
+    </div>
+</div>
+
+@code
+{
+    ElementReference projects;
+}

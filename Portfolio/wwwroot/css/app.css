@@ -1,7 +1,34 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
-html, body
-{
-    background: #212121;
+html, body {
     color: white;
+    height: 100%;
+    letter-spacing: 1px;
+    background: #1a1a1a 50%;
+    font-family: "Montserrat", sans-serif;
+}
+
+.text-lg {
+    font-size: 50px;
+}
+
+.text {
+    margin: -5px;
+}
+
+.page {
+    margin-top: 4rem;
+    scroll-margin-top: 4rem;
+}
+
+.page > div > p {
+    margin-bottom: -5px;
+}
+
+.page > div > img {
+    height: 20rem;
+    width: 20rem;
+    border-radius: 50%;
+    border: 0.9rem solid #1a1a1a;
+    outline: 0.5rem solid #54B4D3;
 }

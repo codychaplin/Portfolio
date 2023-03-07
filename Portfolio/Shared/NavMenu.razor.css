@@ -1,4 +1,8 @@
-.nav-link
-{
-    color: white;
+.bg {
+    background: #171717;
+}
+
+.logo {
+    display: flex;
+    text-decoration: none;
 }
