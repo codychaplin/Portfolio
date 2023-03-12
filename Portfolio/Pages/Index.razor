@@ -1,75 +1,131 @@
 ﻿@page "/"
+@using Portfolio.Models;
 
 <PageTitle>Home</PageTitle>
 
 <div id="home" class="row align-items-center justify-content-center page p-2">
+
+    <!-- intro -->
     <div class="col-sm-12 col-md-8 col-lg-5">
         <p class="fs-4 text-lg-start text-info">Hi, my name is</p>
         <p class="fw-bold text-lg-start text-lg">Cody Chaplin</p>
         <p class="fs-3 text-lg-start">I'm a .NET Developer</p>
     </div>
+
+    <!-- headshot -->
     <div class="col-sm-12 col-md-8 col-lg-5 my-5">
-        <img src="headshot.jpeg" alt="headshot" />
+        <img src="images/headshot.jpeg" alt="headshot" />
     </div>
+    
 </div>
 
-<hr class="bg-info" />
+<hr class="bg-info opacity-100" />
 
-<div id="about" class="row p-2 page">
-    <div class="col">
-        <p class="fs-1 fw-bold mb-5 title">About Me</p>
-        <div class="row">
-            <div class="col-lg-6">
-                <p class="fs-2 fw-bold">Bio</p>
-                <p class="fs-5 text-start text-p">
-                    Hi, I'm Cody Chaplin, a <strong>.NET developer</strong> from Ontario, Canada.
-                    I have two diplomas from Durham College in Computer Systems/Networking
-                    and Computer Programming, respectively.
-                    <br><br>
-                    I love working with <strong>C#</strong> and making <strong>Mobile</strong>,
-                    <strong>Desktop</strong>, and <strong>Web</strong> applications.
-                    I am most comfortable using <strong>Winforms</strong>, <strong>WPF</strong>,
-                    <strong>MAUI</strong>, and <strong>ASP/Blazor</strong>, and have also experimented
-                    with <strong>Unity</strong> for game development. Using these technologies has 
-                    given me a well-rounded understanding of the .NET framework.
-                </p>
-            </div>
-            <div class="col-lg-6">
-                <p class="fs-2 fw-bold">Skills</p>
-                <div class="d-inline-flex flex-wrap align-items-center">
-                    <div class="skill">C#</div>
-                    <div class="skill">Python</div>
-                    <div class="skill">SQL</div>
-                    <div class="skill">NoSQL</div>
-                    <div class="skill">XAML</div>
-                    <div class="skill">HTML5</div>
-                    <div class="skill">CSS3</div>
-                    <!-- I strongly dislike JS -->
-                    <div class="skill">JavaScript</div>
-                    <div class="skill">JSON</div>
-                    <div class="skill">GitHub</div>
-                    <div class="skill">PowerShell</div>
-                    <div class="skill">Windows</div>
-                    <div class="skill">Linux</div>
-                    <div class="skill">Android</div>
-                </div>
-            </div>
+<div id="about" class="row px-2 pb-5 pt-2 page">
+    
+    <!-- title -->
+    <p class="fs-1 fw-bold title">About Me</p>
+
+    <div class="col-lg-6">
+
+        <!-- bio -->
+        <p class="fs-2 fw-bold mb-2">Bio</p>
+        <p class="fs-5 text-start text-p mb-4">
+            Hi, I'm Cody Chaplin, a <strong>.NET developer</strong> from Ontario, Canada.
+            I have two diplomas from Durham College in Computer Systems/Networking
+            and Computer Programming, respectively.
+            <br><br>
+            I love working with <strong>C#</strong> and making <strong>Mobile</strong>,
+            <strong>Desktop</strong>, and <strong>Web</strong> applications.
+            I am most comfortable using <strong>Winforms</strong>, <strong>WPF</strong>,
+            <strong>MAUI</strong>, and <strong>ASP/Blazor</strong>, and have also experimented
+            with <strong>Unity</strong> for game development. Using these technologies has 
+            given me a well-rounded understanding of the .NET framework.
+        </p>
+
+    </div>
+    <div class="col-lg-6">
+
+        <!-- skills -->
+        <p class="fs-2 fw-bold mb-2">Skills</p>
+        <div class="d-inline-flex flex-wrap align-items-center">
+            <div class="skill">C#</div>
+            <div class="skill">Python</div>
+            <div class="skill">SQL</div>
+            <div class="skill">NoSQL</div>
+            <div class="skill">XAML</div>
+            <div class="skill">HTML5</div>
+            <div class="skill">CSS3</div>
+            <div class="skill">JavaScript</div> <!-- (I dislike JS) -->
+            <div class="skill">JSON</div>
+            <div class="skill">GitHub</div>
+            <div class="skill">PowerShell</div>
+            <div class="skill">Windows</div>
+            <div class="skill">Linux</div>
+            <div class="skill">Android</div>
         </div>
+
     </div>
 </div>
 
-<hr class="bg-info" />
+<hr class="bg-info opacity-100" />
 
-<div id="projects" class="row p-2 page">
-    <div class="col">
-        <p class="fs-1 fw-bold title">Projects</p>
+<div id="projects" class="row p-2 mb-2 page">
+
+    <!-- title -->
+    <p class="fs-1 fw-bold mb-4 title">Projects</p>
+
+    <div class="col-12">
+        <Project Id="MoMoneyCarousel" Left=4 Right=8 Height="phone" Images="@MoMoneyImages" Title="MoMoney" Description="
+            MoMoney is a finance tracker that I developed for my personal use.
+            It was made using .NET MAUI and uses an SQLite database to store transactions,
+            accounts, categories, and stocks. It can show you trends in your data, visualizations,
+            account balances, and real-time stock prices via webscraping." />
+
+        <Project Id="UntitledFinanceTrackerCarousel" Left=5 Right=7 Height="desktop" Images="@UntitledFinanceTrackerImages"
+                 Title="UntitledFinanceTracker" Description="
+            UntitledFinanceTracker was the finance tracker I used before I developed MoMoney.
+            It was a project I made with WPF and MS SQL Server while in school. The dashboard shows
+            several charts and statistics and the transactions page allows you to add, filter,
+            and sort transactions." />
+
+        <Project Id="ImagineAICarousel" Left=4 Right=8 Height="phone" Images="@ImagineAIImages" Title="ImagineAI" Description="
+            ImagineAI is a quick and simple app I made to test out OpenAI's API. It utilizes DALL-E
+            to generate an image, based on a provided prompt. The app was also made using .NET MAUI and
+            SQLite. Generated images are stored in a database along with their prompts and urls." />
     </div>
 </div>
 
-<hr class="bg-info" />
+<hr class="bg-info opacity-100" />
 
 <div id="resume" class="row p-2 page">
     <div class="col">
         <p class="fs-1 fw-bold title">Resume</p>
     </div>
 </div>
+
+@code
+{
+    List<CarouselImage> MoMoneyImages = new List<CarouselImage>
+    {
+        new CarouselImage("momoney/home.png","Home"),
+        new CarouselImage("momoney/transactions.png","Transactions"),
+        new CarouselImage("momoney/editTransaction.png","Edit Transaction"),
+        new CarouselImage("momoney/accounts.png","Accounts"),
+        new CarouselImage("momoney/breakdownExpenses.png","Expense Breakdown"),
+        new CarouselImage("momoney/breakdownIncome.png","Income Breakdown"),
+        new CarouselImage("momoney/insights.png","Insights")
+    };
+
+    List<CarouselImage> ImagineAIImages = new List<CarouselImage>
+    {
+        new CarouselImage("imagineai/home.png","Home"),
+        new CarouselImage("imagineai/history.png","History")
+    };
+
+    List<CarouselImage> UntitledFinanceTrackerImages = new List<CarouselImage>
+    {
+        new CarouselImage("untitledfinancetracker/home.png","Home"),
+        new CarouselImage("untitledfinancetracker/transactions.png","Transactions")
+    };
+}

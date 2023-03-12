@@ -1,0 +1,61 @@
+﻿@using Portfolio.Models;
+
+<div class="row border border-2 border-info round bg-nav mb-5">
+
+    <!-- carousel -->
+    <div class="col-lg-@Left py-4">
+        <div id="@Id" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- first item must be active -->
+                <div class="carousel-item active @Height">
+                    <img src="images/@Images[0].Src" alt="@Images[0].Alt" class="border-project h-100" />
+                </div>
+                @for (int i = 1; i < Images.Count; i++)
+                {
+                    <div class="carousel-item @Height">
+                        <img src="images/@Images[i].Src" alt="@Images[i].Alt" class="border-project h-100" />
+                    </div>
+                }
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#@Id" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#@Id" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- description -->
+    <div class="col-lg-@Right px-5 py-3 align-self-center">
+        <p class="fs-2 fw-bold text-lg-start mb-3">@Title</p>
+        <p class="fs-5 text-start text-p">@Description</p>
+    </div>
+
+</div>
+
+@code
+{
+    [Parameter]
+    public string Id { get; set; } = "";
+
+    [Parameter]
+    public int Left { get; set; }
+
+    [Parameter]
+    public int Right { get; set; }
+
+    [Parameter]
+    public string Height { get; set; } = "";
+
+    [Parameter]
+    public List<CarouselImage> Images { get; set; } = new();
+
+    [Parameter]
+    public string Title { get; set; } = "";
+
+    [Parameter]
+    public string Description { get; set; } = "";
+}
