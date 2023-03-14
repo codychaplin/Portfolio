@@ -1,0 +1,23 @@
+﻿<div class="col-md-3 border border-2 border-info round bg-nav m-3 p-3">
+    <a href="@Url"><img class="my-4" src="@Source" alt="@Alt" height="80" /></a>
+    <p class="fs-4">@Title</p>
+    <p class="fs-6 my-4 text-p">@Description</p>
+</div>
+
+@code
+{
+    [Parameter]
+    public string Source { get; set; } = "";
+
+    [Parameter]
+    public string Alt { get; set; } = "";
+
+    [Parameter]
+    public string Url { get; set; } = "";
+
+    [Parameter]
+    public string Title { get; set; } = "";
+
+    [Parameter]
+    public string Description { get; set; } = "";
+}

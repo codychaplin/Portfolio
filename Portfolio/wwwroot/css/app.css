@@ -37,7 +37,7 @@ html, body {
     margin-bottom: -5px;
 }
 
-.page > div > img {
+.image-border {
     height: 20rem;
     width: 20rem;
     border-radius: 50%;
@@ -81,4 +81,9 @@ html, body {
 
 .desktop {
     height: 280px;
+}
+
+.text-footer {
+    font-size: 0.9rem;
+    color: #cccccc !important;
 }
