@@ -3,6 +3,7 @@
 
 <PageTitle>Home</PageTitle>
 
+<!-- home -->
 <div id="home" class="row align-items-center justify-content-center page p-4">
 
     <!-- intro -->
@@ -19,16 +20,16 @@
     
 </div>
 
-<hr class="bg-info opacity-100 my-5" />
+<hr class="bg-info opacity-100 my-5" /> <!-- page break -->
 
+<!-- skills -->
 <div id="about" class="row page p-4">
     
     <!-- title -->
     <p class="fs-1 fw-bold title mb-5">About Me</p>
 
+    <!-- bio -->
     <div class="col-lg-6">
-
-        <!-- bio -->
         <p class="fs-2 fw-bold mb-2">Bio</p>
         <p class="fs-5 text-start text-p mb-4">
             Hi, I'm Cody Chaplin, a <strong>.NET developer</strong> from Ontario, Canada.
@@ -42,11 +43,10 @@
             with <strong>Unity</strong> for game development. Using these technologies has 
             given me a well-rounded understanding of the .NET framework.
         </p>
-
     </div>
-    <div class="col-lg-6">
 
-        <!-- skills -->
+    <!-- skills -->
+    <div class="col-lg-6">
         <p class="fs-2 fw-bold mb-2">Skills</p>
         <div class="d-inline-flex flex-wrap align-items-center">
             <div class="skill">C#</div>
@@ -64,17 +64,18 @@
             <div class="skill">Windows</div>
             <div class="skill">Linux</div>
         </div>
-
     </div>
 </div>
 
-<hr class="bg-info opacity-100 my-5" />
+<hr class="bg-info opacity-100 my-5" /> <!-- page break -->
 
+<!-- projects -->
 <div id="projects" class="row p-4 mb-2 page">
 
     <!-- title -->
     <p class="fs-1 fw-bold mb-5 title">Projects</p>
 
+    <!-- project components -->
     <div class="col-12">
         <Project Id="MoMoneyCarousel" Left=4 Right=8 Height="phone" Images="@MoMoneyImages" Title="MoMoney" Description="
             MoMoney is a finance tracker that I developed for my personal use.
@@ -96,16 +97,19 @@
     </div>
 </div>
 
-<hr class="bg-info opacity-100 my-5" />
+<hr class="bg-info opacity-100 my-5" /> <!-- page break -->
 
+<!-- contact -->
 <div id="contact" class="row justify-content-center mx-2 mb-3 p-4 page">
 
+    <!-- title -->
     <div class="col-12">
         <p class="fs-1 fw-bold mb-4 title">Contact Me</p>
         <p class="fs-3 my-3 text-p">Want to get in touch?</p>
         <p class="fs-4 mb-4 text-p">Feel free to reach out via email or LinkedIn, or check out my github!</p>
     </div>
 
+    <!-- contact components -->
     <ContactOption Url="mailto:chaplinbcody@gmail.com" Source="images/email.png" Alt="email" Title="Email"
                    Description="For general inquiries, feel free to contact me via email. I'll do my best to respond promptly." />
 
@@ -121,6 +125,8 @@
 
 @code
 {
+    // image lists for projects
+
     List<CarouselImage> MoMoneyImages = new List<CarouselImage>
     {
         new CarouselImage("momoney/home.png","Home"),
