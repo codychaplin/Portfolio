@@ -10,7 +10,7 @@
     <div class="col-sm-12 col-md-8 col-lg-5">
         <p class="fs-4 text-lg-start text-info">Hi, my name is</p>
         <p class="fw-bold text-lg-start text-lg">Cody Chaplin</p>
-        <p class="fs-3 text-lg-start">I'm a .NET Developer</p>
+        <p class="fs-3 text-lg-start">I'm a Software Developer</p>
     </div>
 
     <!-- headshot -->
@@ -32,16 +32,19 @@
     <div class="col-lg-6">
         <p class="fs-2 fw-bold mb-2">Bio</p>
         <p class="fs-5 text-start text-p mb-4">
-            Hi, I'm Cody Chaplin, a <strong>.NET developer</strong> from Ontario, Canada.
+            Hi, I'm Cody Chaplin, a <strong>software developer</strong> from Ontario, Canada.
             I have two diplomas from Durham College in Computer Systems/Networking
             and Computer Programming, respectively.
             <br><br>
             I love working with <strong>C#</strong> and making <strong>Mobile</strong>,
             <strong>Desktop</strong>, and <strong>Web</strong> applications.
-            I am most comfortable using <strong>Winforms</strong>, <strong>WPF</strong>,
+            I am most comfortable using <strong>WPF</strong>,
             <strong>MAUI</strong>, and <strong>ASP/Blazor</strong>, and have also experimented
             with <strong>Unity</strong> for game development. Using these technologies has 
-            given me a well-rounded understanding of the .NET framework.
+            given me a well-rounded understanding of the <strong>.NET Framework</strong>.
+            <br><br>
+            I have also taken up <strong>Flutter</strong> as an alternative to MAUI to make
+            <strong>cross-platform</strong> applications.
         </p>
     </div>
 
@@ -49,7 +52,10 @@
     <div class="col-lg-6">
         <p class="fs-2 fw-bold mb-2">Skills</p>
         <div class="d-inline-flex flex-wrap align-items-center">
+            <div class="skill">.NET</div>
             <div class="skill">C#</div>
+            <div class="skill">Flutter</div>
+            <div class="skill">Dart</div>
             <div class="skill">Python</div>
             <div class="skill">SQL</div>
             <div class="skill">NoSQL</div>
@@ -57,12 +63,9 @@
             <div class="skill">HTML5</div>
             <div class="skill">CSS3</div>
             <div class="skill">Bootstrap</div>
-            <div class="skill">JavaScript</div> <!-- (I dislike JS) -->
-            <div class="skill">JSON</div>
+            <div class="skill">JavaScript</div>
             <div class="skill">Git</div>
             <div class="skill">PowerShell</div>
-            <div class="skill">Windows</div>
-            <div class="skill">Linux</div>
         </div>
     </div>
 </div>
@@ -105,6 +108,14 @@
             Store. It comes with all the common conversions and everything is available on one page so no
             need to navigate through a multitude of pages/categories, just simply scroll along the top to
             find the unit you're looking for." />
+
+        <Project Id="VoxelGameCarousel" Left=5 Right=7 Images="@VoxelGameImages"
+                 Title="Voxel Game" Description="
+            Voxel Game is a passion project of mine. The long term goal is to create a highly efficient
+            voxel engine that utilizes as many memory saving techniques as possible such as vertex compression,
+            frustum and occlusion culling, greedy meshing, (potentially) sparse voxel octrees, multithreading,
+            compute shaders and GPU instancing. I find graphics programming facinating so this project gives me
+            a chance to perform an extensive deep dive in the subject." />
     </div>
 </div>
 
@@ -169,5 +180,13 @@
     {
         new CarouselImage("unitconverter/dark.png","Dark Mode"),
         new CarouselImage("unitconverter/light.png","Light Mode")
+    };
+
+    List<CarouselImage> VoxelGameImages = new List<CarouselImage>
+    {
+        new CarouselImage("voxelgame/voxelgame1.png","World Generation"),
+        new CarouselImage("voxelgame/voxelgame2.png","More World Generation"),
+        new CarouselImage("voxelgame/voxelgame3.png","Caves"),
+        new CarouselImage("voxelgame/voxelgame4.png","Spectator view of Caves")
     };
 }
