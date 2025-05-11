@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import ProjectCard from "./ProjectCard";
-import ContactOption from "./ContactOption";
+import ProjectCard from "./components/ProjectCard";
+import ContactOption from "./components/ContactOption";
 
 function App() {
     useEffect(() => {
