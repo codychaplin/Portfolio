@@ -70,7 +70,7 @@ function App() {
             <main className="flex-1 flex flex-col items-center px-4">
                 {/* About Section */}
                 <section id="about" className="py-10 flex flex-col items-center text-center">
-                    <img src="/Portfolio/public/images/headshot.jpg" alt="Cody Chaplin" className="w-96 h-96 rounded-full object-cover mb-6 border-4 border-blue-200" />
+                    <img src="/Portfolio/images/headshot.jpg" alt="Cody Chaplin" className="w-96 h-96 rounded-full object-cover mb-6 border-4 border-blue-200" />
                     <h1 className="text-4xl md:text-5xl font-bold mb-4">Cody Chaplin</h1>
                     <p className="text-xl md:text-2xl mb-6">Software Developer</p>
                     <p className="text-base md:text-lg text-gray-600">
