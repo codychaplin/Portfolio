@@ -77,8 +77,7 @@ function App() {
                         Hi, I'm Cody Chaplin, a <strong>full-stack developer</strong> from Ontario, Canada. I have two diplomas in Computer Systems/Networking and Computer
                         Programming, respectively. I love working with <strong>C#</strong> and <strong>JavaScript</strong> making <strong>Mobile</strong> and <strong>Web</strong>{" "}
                         applications. I am currently a full-stack developer at a small company in the medical industry, where I maintain a cross-platform <strong>.NET MAUI</strong>{" "}
-                        mobile app and an <strong>AI/data analytics</strong> server. The app is used by doctors and students as an activity log and the server is used to streamline
-                        the logging process by utilizing <strong>LLMs</strong> and <strong>analyze/visualize</strong> the data collected by the app.
+                        mobile app and an <strong>AI/data analytics</strong> server.
                     </p>
                 </section>
 
