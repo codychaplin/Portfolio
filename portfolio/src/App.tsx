@@ -1,8 +1,35 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import ProjectCard from "./components/ProjectCard";
 import ContactOption from "./components/ContactOption";
 
 function App() {
+    type Theme = "light" | "dark" | "system";
+    const getSystemTheme = () => (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    const getInitialTheme = (): Theme => {
+        const stored = localStorage.getItem("theme");
+        if (stored === "light" || stored === "dark" || stored === "system") return stored;
+        return "system";
+    };
+    const [theme, setTheme] = useState<Theme>(getInitialTheme);
+    const [systemTheme, setSystemTheme] = useState<"light" | "dark">(getSystemTheme());
+
+    useEffect(() => {
+        if (theme === "system") {
+            document.documentElement.classList.toggle("dark", systemTheme === "dark");
+        } else {
+            document.documentElement.classList.toggle("dark", theme === "dark");
+        }
+        localStorage.setItem("theme", theme);
+    }, [theme, systemTheme]);
+
+    useEffect(() => {
+        if (theme !== "system") return;
+        const mq = window.matchMedia("(prefers-color-scheme: dark)");
+        const handler = () => setSystemTheme(getSystemTheme());
+        mq.addEventListener("change", handler);
+        return () => mq.removeEventListener("change", handler);
+    }, [theme]);
+
     useEffect(() => {
         const handleLinkClick = (e: Event) => {
             const target = e.target as HTMLAnchorElement;
@@ -39,41 +66,66 @@ function App() {
     ];
 
     return (
-        <div className="min-h-screen bg-gray-50 text-gray-900 flex flex-col">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col">
             {/* Navbar */}
-            <nav className="w-full py-6 bg-white shadow-md sticky top-0 z-10">
+            <nav className="w-full py-4 bg-white dark:bg-gray-950 shadow-md sticky top-0 z-10">
                 <ul className="flex justify-center gap-8 text-lg font-semibold">
                     <li>
-                        <a href="#about" className="hover:text-blue-600 transition-colors">
+                        <a href="#about" className="hover:text-blue-600 dark:hover:text-blue-300 transition-colors">
                             About
                         </a>
                     </li>
                     <li>
-                        <a href="#skills" className="hover:text-blue-600 transition-colors">
+                        <a href="#skills" className="hover:text-blue-600 dark:hover:text-blue-300 transition-colors">
                             Skills
                         </a>
                     </li>
                     <li>
-                        <a href="#projects" className="hover:text-blue-600 transition-colors">
+                        <a href="#projects" className="hover:text-blue-600 dark:hover:text-blue-300 transition-colors">
                             Projects
                         </a>
                     </li>
                     <li>
-                        <a href="#contact" className="hover:text-blue-600 transition-colors">
+                        <a href="#contact" className="hover:text-blue-600 dark:hover:text-blue-300 transition-colors">
                             Contact
                         </a>
                     </li>
                 </ul>
+                {/* Theme switcher */}
+                <div className="absolute top-3 right-3 z-50 flex gap-1 bg-gray-200 p-1 dark:bg-gray-700 rounded shadow">
+                    <button
+                        className={`px-2 py-1 rounded transition-colors text-sm font-semibold flex items-center gap-1 ${theme === "light" ? "bg-blue-500 text-white" : "hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-100"}`}
+                        onClick={() => setTheme("light")}
+                        aria-label="Light mode">
+                        Light
+                    </button>
+                    <button
+                        className={`px-2 py-1 rounded transition-colors text-sm font-semibold flex items-center gap-1 ${theme === "dark" ? "bg-blue-500 text-white" : "hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-100"}`}
+                        onClick={() => setTheme("dark")}
+                        aria-label="Dark mode">
+                        Dark
+                    </button>
+                    <button
+                        className={`px-2 py-1 rounded transition-colors text-sm font-semibold flex items-center gap-1 ${theme === "system" ? "bg-blue-500 text-white" : "hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-100"}`}
+                        onClick={() => setTheme("system")}
+                        aria-label="System mode">
+                        Auto
+                    </button>
+                </div>
             </nav>
 
             {/* Main Content */}
-            <main className="flex-1 flex flex-col items-center px-4">
+            <main className="flex-1 flex flex-col items-center px-4 bg-white dark:bg-gray-900">
                 {/* About Section */}
-                <section id="about" className="py-10 flex flex-col items-center text-center">
-                    <img src="/Portfolio/images/headshot.jpg" alt="Cody Chaplin" className="w-96 h-96 rounded-full object-cover mb-6 border-4 border-blue-200" />
-                    <h1 className="text-4xl md:text-5xl font-bold mb-4">Cody Chaplin</h1>
-                    <p className="text-xl md:text-2xl mb-6">Software Developer</p>
-                    <p className="text-base md:text-lg text-gray-600">
+                <section id="about" className="py-10 flex flex-col items-center text-center bg-white dark:bg-gray-900">
+                    <img
+                        src="/Portfolio/images/headshot.jpg"
+                        alt="Cody Chaplin"
+                        className="w-96 h-96 rounded-full object-cover mb-6 border-4 border-blue-200 dark:border-blue-400"
+                    />
+                    <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-blue-100">Cody Chaplin</h1>
+                    <p className="text-xl md:text-2xl mb-6 text-gray-800 dark:text-blue-200">Software Developer</p>
+                    <p className="text-base md:text-lg text-gray-600 dark:text-blue-200">
                         Hi, I'm Cody Chaplin, a <strong>full-stack developer</strong> from Ontario, Canada. I have two diplomas in Computer Systems/Networking and Computer
                         Programming, respectively. I love working with <strong>C#</strong> and <strong>JavaScript</strong> making <strong>Mobile</strong> and <strong>Web</strong>{" "}
                         applications. I am currently a full-stack developer at a small company in the medical industry, where I maintain a cross-platform <strong>.NET MAUI</strong>{" "}
@@ -82,11 +134,11 @@ function App() {
                 </section>
 
                 {/* Skills Section */}
-                <section id="skills" className="py-10 flex flex-col items-center text-center">
-                    <h2 className="text-3xl font-bold mb-8">Skills</h2>
+                <section id="skills" className="py-10 flex flex-col items-center text-center bg-white dark:bg-gray-900">
+                    <h2 className="text-3xl font-bold mb-8 text-gray-900 dark:text-blue-100">Skills</h2>
                     <ul className="flex flex-wrap justify-center gap-4 mb-6">
                         {skills.map((skill) => (
-                            <li key={skill} className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">
+                            <li key={skill} className="bg-blue-100 dark:bg-slate-800 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full">
                                 {skill}
                             </li>
                         ))}
@@ -94,8 +146,8 @@ function App() {
                 </section>
 
                 {/* Projects Section */}
-                <section id="projects" className="py-10 flex flex-col items-center text-center">
-                    <h2 className="text-3xl font-bold mb-8">Projects</h2>
+                <section id="projects" className="py-10 flex flex-col items-center text-left bg-white dark:bg-gray-900">
+                    <h2 className="text-3xl font-bold mb-8 text-gray-900 dark:text-blue-100">Projects</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
                         <ProjectCard
                             title="MoMoney"
@@ -126,26 +178,26 @@ function App() {
                 </section>
 
                 {/* Contact Section */}
-                <section id="contact" className="py-10 flex flex-col items-center text-center">
-                    <h2 className="text-3xl font-bold mb-4">Contact Me</h2>
-                    <p className="text-xl my-3 text-gray-700">Want to get in touch?</p>
-                    <p className="text-lg mb-8 text-gray-600">Feel free to reach out via email or LinkedIn, or check out my GitHub!</p>
+                <section id="contact" className="py-10 flex flex-col items-center text-center bg-white dark:bg-gray-900">
+                    <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-blue-100">Contact Me</h2>
+                    <p className="text-xl my-3 text-gray-700 dark:text-blue-200">Want to get in touch?</p>
+                    <p className="text-lg mb-8 text-gray-600 dark:text-blue-200">Feel free to reach out via email or LinkedIn, or check out my GitHub!</p>
                     <div className="flex flex-wrap justify-center gap-8 mb-8">
                         <ContactOption
                             href="mailto:chaplinbcody@gmail.com"
-                            imgSrc="/Portfolio/images/email.svg"
+                            svgPath="M4 20q-0.825 0-1.413-0.588T2 18V6q0-0.825 0.588-1.413T4 4h16q0.825 0 1.413 0.588T22 6v12q0 0.825-0.588 1.413T20 20H4Zm8-7.5 8-5V6l-8 5-8-5v1.5l8 5Z"
                             title="Email"
                             description="For general inquiries, feel free to contact me via email. I'll do my best to respond promptly."
                         />
                         <ContactOption
                             href="https://www.linkedin.com/in/codychaplin"
-                            imgSrc="/Portfolio/images/linkedin-logo.svg"
+                            svgPath="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
                             title="LinkedIn"
                             description="If you're interested in my professional experience or want to connect with me, check out my LinkedIn profile!"
                         />
                         <ContactOption
                             href="https://github.com/codychaplin"
-                            imgSrc="/Portfolio/images/github-logo.svg"
+                            svgPath="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.26.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.606-2.665-.304-5.466-1.334-5.466-5.931 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.52 11.52 0 0 1 3.003-.404c1.018.005 2.045.138 3.003.404 2.291-1.553 3.297-1.23 3.297-1.23.653 1.653.242 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.803 5.625-5.475 5.921.43.371.823 1.102.823 2.222v3.293c0 .32.218.694.825.576C20.565 21.796 24 17.297 24 12c0-6.63-5.37-12-12-12z"
                             title="GitHub"
                             description="To see some of the coding projects I've been working on and to get a sense of my coding style, check out my GitHub Profile!"
                         />
@@ -153,7 +205,9 @@ function App() {
                 </section>
             </main>
 
-            <footer className="w-full py-4 bg-white text-center text-gray-500 text-sm mt-auto">© {new Date().getFullYear()} Cody Chaplin. All rights reserved.</footer>
+            <footer className="w-full py-4 bg-white dark:bg-gray-950 text-center text-gray-500 dark:text-blue-300 text-sm mt-auto">
+                © {new Date().getFullYear()} Cody Chaplin. All rights reserved.
+            </footer>
         </div>
     );
 }
