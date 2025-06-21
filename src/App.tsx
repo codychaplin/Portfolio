@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Portfolio from "./components/custom/Portfolio";
-import PrivacyPolicy from "./components/custom/PrivacyPolicy";
+import Portfolio from "./views/Portfolio";
+import PrivacyPolicy from "./views/PrivacyPolicy";
 
 function App() {
     useEffect(() => {

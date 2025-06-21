@@ -1,6 +1,6 @@
-import ProjectCard from "./ProjectCard";
-import ContactOption from "./ContactOption";
-import Navbar from "./Navbar";
+import ProjectCard from "../components/custom/ProjectCard";
+import ContactOption from "../components/custom/ContactOption";
+import Navbar from "../components/custom/Navbar";
 
 function Portfolio() {
     const skills = [
